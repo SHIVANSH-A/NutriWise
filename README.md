@@ -28,7 +28,7 @@ The backend uses structured prompt engineering to generate meaningful, formatted
 - **LLM Integration**: Grok API
 - **Templating**: Jinja2
 
-##📂 Project Structure
+## 📂 Project Structure
 ```bash
 nutriwise/
 │
