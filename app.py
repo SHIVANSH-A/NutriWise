@@ -8,7 +8,7 @@ import re
 app = Flask(__name__)
 
 llm_resto = ChatGroq(
-    api_key = "API_KEY",
+    api_key = "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",
     model = "llama-3.3-70b-versatile",
     temperature=0.0
 )
@@ -18,8 +18,15 @@ prompt_template_resto = PromptTemplate(
     template=(
         "Diet Recommendation System:\n"
         "I want you to provide output in the following format using the input criteria:\n\n"
+        "For **Restaurants**, include the **exact location with city, area, and street name** wherever possible. "
+        "The format should be:\n- Name (Area, Street, City)\n\n"
         "Restaurants:\n"
-        "- name1\n- name2\n- name3\n- name4\n- name5\n- name6\n\n"
+        "- name1 -(Area, Street, City)\n"
+        "- name2 -(Area, Street, City)\n"
+        "- name3 -(Area, Street, City)\n"
+        "- name4 -(Area, Street, City)\n"
+        "- name5 -(Area, Street, City)\n"
+        "- name6 -(Area, Street, City)\n\n"
         "Breakfast:\n"
         "- item1\n- item2\n- item3\n- item4\n- item5\n- item6\n\n"
         "Dinner:\n"
