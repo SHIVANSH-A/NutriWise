@@ -8,7 +8,7 @@ import re
 app = Flask(__name__)
 
 llm_resto = ChatGroq(
-    api_key = "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",
+    api_key = "API_KEY",
     model = "llama-3.3-70b-versatile",
     temperature=0.0
 )

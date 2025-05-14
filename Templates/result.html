@@ -1,51 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Recommendations</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <title>Recommendations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#6366F1',
+            accent: '#F43F5E',
+          }
+        }
+      }
+    };
+  </script>
 </head>
-<body class="bg-gray-100 text-gray-900 font-sans">
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 font-sans transition-colors duration-300 min-h-screen">
 
-    <div class="max-w-4xl mx-auto my-10 bg-white rounded-2xl shadow-xl p-6 space-y-8">
-        <h2 class="text-3xl font-semibold text-center text-red-600">Personalized Recommendations</h2>
+  <!-- Theme Toggle -->
+  <div class="flex justify-end p-4">
+    <button id="theme-toggle" class="text-xl bg-gray-200 dark:bg-gray-700 p-2 rounded-full shadow-md hover:scale-105 transition" aria-label="Toggle Theme">
+      🌙
+    </button>
+  </div>
 
-        <div>
-            <h3 class="text-2xl font-semibold border-b pb-2">🍴 Restaurants</h3>
-            <ul class="list-disc pl-5 mt-2">
-                {% for i in restaurant_names %}
-                <li>{{i}}</li>
-                {% endfor %}
-            </ul>
-        </div>
+  <!-- Main Container -->
+  <div class="max-w-4xl mx-auto my-8 bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 space-y-10 transition-colors duration-300">
 
-        <div>
-            <h3 class="text-2xl font-semibold border-b pb-2">☀️ Breakfast</h3>
-            <ul class="list-disc pl-5 mt-2">
-                {% for i in breakfast_names %}
-                <li>{{i}}</li>
-                {% endfor %}
-            </ul>
-        </div>
+    <h2 class="text-4xl font-bold text-center text-accent dark:text-pink-400">✨ Personalized Recommendations</h2>
 
-        <div>
-            <h3 class="text-2xl font-semibold border-b pb-2">🌙 Dinner</h3>
-            <ul class="list-disc pl-5 mt-2">
-                {% for i in dinner_names %}
-                <li>{{i}}</li>
-                {% endfor %}
-            </ul>
-        </div>
+    <!-- Restaurants -->
+    <section>
+      <h3 class="text-2xl font-semibold border-b border-gray-300 dark:border-gray-600 pb-2">🍴 Recommended Restaurants</h3>
+      <ul class="list-disc pl-6 mt-3 space-y-1">
+        {% for i in restaurant_names %}
+          <li>{{i}}</li>
+        {% endfor %}
+      </ul>
+    </section>
 
-        <div>
-            <h3 class="text-2xl font-semibold border-b pb-2">💪 Workouts</h3>
-            <ul class="list-disc pl-5 mt-2">
-                {% for i in workout_names %}
-                <li>{{i}}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
+    <!-- Breakfast -->
+    <section>
+      <h3 class="text-2xl font-semibold border-b border-gray-300 dark:border-gray-600 pb-2">☀️ Breakfast Ideas</h3>
+      <ul class="list-disc pl-6 mt-3 space-y-1">
+        {% for i in breakfast_names %}
+          <li>{{i}}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <!-- Dinner -->
+    <section>
+      <h3 class="text-2xl font-semibold border-b border-gray-300 dark:border-gray-600 pb-2">🌙 Dinner Options</h3>
+      <ul class="list-disc pl-6 mt-3 space-y-1">
+        {% for i in dinner_names %}
+          <li>{{i}}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <!-- Workouts -->
+    <section>
+      <h3 class="text-2xl font-semibold border-b border-gray-300 dark:border-gray-600 pb-2">💪 Workout Plans</h3>
+      <ul class="list-disc pl-6 mt-3 space-y-1">
+        {% for i in workout_names %}
+          <li>{{i}}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+
+    function updateThemeIcon() {
+      toggleBtn.textContent = document.documentElement.classList.contains('dark') ? '🌞' : '🌙';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+      updateThemeIcon();
+    });
+
+    // Load previously saved theme
+    if (localStorage.theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+    updateThemeIcon();
+  </script>
 
 </body>
 </html>
