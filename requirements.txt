@@ -2,3 +2,6 @@ flask
 openai
 requests
 python-dotenv
+gunicorn==19.7.1
+langchain
+langchain_groq
