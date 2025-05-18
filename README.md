@@ -1,4 +1,4 @@
-# 🥗 NutriWise — AI-Powered Nutrition Advisor
+# 🥗 NutriWise — AI-Powered Nutrition Advisor and Wellness Companion
 
 NutriWise is an AI-powered web application that delivers **personalized diet**, **restaurant**, and **workout** recommendations based on user health metrics and preferences. Built using **Flask**, **Tailwind CSS**, and powered by the **Grok Large Language Model (LLM)**, it provides intelligent, localized, and adaptive suggestions.
 
